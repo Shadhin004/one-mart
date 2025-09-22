@@ -1,0 +1,1707 @@
+import React from 'react'
+
+const SearchResult = () => {
+  return (
+    <div>
+        <div className="filter-select-area">
+            <div className="top-filter">
+                <span>Showing 1–20 of 57 results</span>
+                <div className="right-end">
+                    <span>Sort: Short By Latest</span>
+                    <div className="button-tab-area">
+                        <ul className="nav nav-tabs" id="myTab" role="tablist">
+                            <li className="nav-item" role="presentation">
+                                <button className="nav-link single-button " id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="false">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.5" y="0.5" width="6" height="6" rx="1.5" stroke="#2C3B28" />
+                                        <rect x="0.5" y="9.5" width="6" height="6" rx="1.5" stroke="#2C3B28" />
+                                        <rect x="9.5" y="0.5" width="6" height="6" rx="1.5" stroke="#2C3B28" />
+                                        <rect x="9.5" y="9.5" width="6" height="6" rx="1.5" stroke="#2C3B28" />
+                                    </svg>
+                                </button>
+                            </li>
+                            <li className="nav-item" role="presentation">
+                                <button className="nav-link single-button active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="true">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.5" y="0.5" width="6" height="6" rx="1.5" stroke="#2C3C28" />
+                                        <rect x="0.5" y="9.5" width="6" height="6" rx="1.5" stroke="#2C3C28" />
+                                        <rect x="9" y="3" width="7" height="1" fill="#2C3C28" />
+                                        <rect x="9" y="12" width="7" height="1" fill="#2C3C28" />
+                                    </svg>
+                                </button>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div className="nice-select-area-wrapper-and-button">
+                <div className="nice-select-wrapper-1">
+                    <div className="single-select">
+                        <select>
+                            <option data-display="All Categories">All Categories</option>
+                            <option value="1">Some option</option>
+                            <option value="2">Another option</option>
+                            <option value="3" disabled>A disabled option</option>
+                            <option value="4">Potato</option>
+                        </select>
+                    </div>
+                    <div className="single-select">
+                        <select>
+                            <option data-display="All Brands">All Brands</option>
+                            <option value="1">Some option</option>
+                            <option value="2">Another option</option>
+                            <option value="3" disabled>A disabled option</option>
+                            <option value="4">Potato</option>
+                        </select>
+                    </div>
+                    <div className="single-select">
+                        <select>
+                            <option data-display="All Size">All Size </option>
+                            <option value="1">Some option</option>
+                            <option value="2">Another option</option>
+                            <option value="3" disabled>A disabled option</option>
+                            <option value="4">Potato</option>
+                        </select>
+                    </div>
+                    <div className="single-select">
+                        <select>
+                            <option data-display="All Weight">All Weight</option>
+                            <option value="1">Some option</option>
+                            <option value="2">Another option</option>
+                            <option value="3" disabled>A disabled option</option>
+                            <option value="4">Potato</option>
+                        </select>
+                    </div>
+                </div>
+                <div className="button-area">
+                    <button className="rts-btn">Filter</button>
+                    <button className="rts-btn">Reset Filter</button>
+                </div>
+            </div>
+        </div>
+
+        <div className="tab-content" id="myTabContent">
+            <div className="product-area-wrapper-shopgrid-list mt--20 tab-pane fade" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabIndex="0">
+                <div className="row g-4">
+                    <div className="col-lg-20">
+                        <div className="single-shopping-card-one">
+                
+                            <div className="image-and-action-area-wrapper">
+                                <a href="shop-details.html" className="thumbnail-preview">
+                                    <div className="badge">
+                                        <span>25% <br/> 
+                                            Off
+                                        </span>
+                                        <i className="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <img src="assets/images/grocery/01.jpg" alt="grocery"/>
+                                </a>
+                                <div className="action-share-option">
+                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
+                                        <i className="fa-light fa-heart"></i>
+                                    </div>
+                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i className="fa-solid fa-arrows-retweet"></i>
+                                    </div>
+                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                            <div className="body-content">
+
+                                <a href="shop-details.html">
+                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                        Wheat with Milk</h4>
+                                </a>
+                                <span className="availability">500g Pack</span>
+                                <div className="price-area">
+                                    <span className="current">$36.00</span>
+                                    <div className="previous">$36.00</div>
+                                </div>
+                                <div className="cart-counter-action">
+                                    <div className="quantity-edit">
+                                        <input type="text" className="input" defaultValue="1"/>
+                                        <div className="button-wrapper-action">
+                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                        <div className="btn-text">
+                                            Add To Cart
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-20">
+                        <div className="single-shopping-card-one">
+                
+                            <div className="image-and-action-area-wrapper">
+                                <a href="shop-details.html" className="thumbnail-preview">
+                                    <div className="badge">
+                                        <span>25% <br/> 
+                                            Off
+                                        </span>
+                                        <i className="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <img src="assets/images/grocery/02.jpg" alt="grocery"/>
+                                </a>
+                                <div className="action-share-option">
+                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
+                                        <i className="fa-light fa-heart"></i>
+                                    </div>
+                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i className="fa-solid fa-arrows-retweet"></i>
+                                    </div>
+                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                            <div className="body-content">
+
+                                <a href="shop-details.html">
+                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                        Wheat with Milk</h4>
+                                </a>
+                                <span className="availability">500g Pack</span>
+                                <div className="price-area">
+                                    <span className="current">$36.00</span>
+                                    <div className="previous">$36.00</div>
+                                </div>
+                                <div className="cart-counter-action">
+                                    <div className="quantity-edit">
+                                        <input type="text" className="input" defaultValue="1"/>
+                                        <div className="button-wrapper-action">
+                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                        <div className="btn-text">
+                                            Add To Cart
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-20">
+                        <div className="single-shopping-card-one">
+                
+                            <div className="image-and-action-area-wrapper">
+                                <a href="shop-details.html" className="thumbnail-preview">
+                                    <div className="badge">
+                                        <span>25% <br/> 
+                                            Off
+                                        </span>
+                                        <i className="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <img src="assets/images/grocery/03.jpg" alt="grocery"/>
+                                </a>
+                                <div className="action-share-option">
+                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
+                                        <i className="fa-light fa-heart"></i>
+                                    </div>
+                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i className="fa-solid fa-arrows-retweet"></i>
+                                    </div>
+                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                            <div className="body-content">
+
+                                <a href="shop-details.html">
+                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                        Wheat with Milk</h4>
+                                </a>
+                                <span className="availability">500g Pack</span>
+                                <div className="price-area">
+                                    <span className="current">$36.00</span>
+                                    <div className="previous">$36.00</div>
+                                </div>
+                                <div className="cart-counter-action">
+                                    <div className="quantity-edit">
+                                        <input type="text" className="input" defaultValue="1"/>
+                                        <div className="button-wrapper-action">
+                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                        <div className="btn-text">
+                                            Add To Cart
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-20">
+                        <div className="single-shopping-card-one">
+                
+                            <div className="image-and-action-area-wrapper">
+                                <a href="shop-details.html" className="thumbnail-preview">
+                                    <div className="badge">
+                                        <span>25% <br/> 
+                                            Off
+                                        </span>
+                                        <i className="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <img src="assets/images/grocery/04.jpg" alt="grocery"/>
+                                </a>
+                                <div className="action-share-option">
+                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
+                                        <i className="fa-light fa-heart"></i>
+                                    </div>
+                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i className="fa-solid fa-arrows-retweet"></i>
+                                    </div>
+                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                            <div className="body-content">
+
+                                <a href="shop-details.html">
+                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                        Wheat with Milk</h4>
+                                </a>
+                                <span className="availability">500g Pack</span>
+                                <div className="price-area">
+                                    <span className="current">$36.00</span>
+                                    <div className="previous">$36.00</div>
+                                </div>
+                                <div className="cart-counter-action">
+                                    <div className="quantity-edit">
+                                        <input type="text" className="input" defaultValue="1"/>
+                                        <div className="button-wrapper-action">
+                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                        <div className="btn-text">
+                                            Add To Cart
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-20">
+                        <div className="single-shopping-card-one">
+                
+                            <div className="image-and-action-area-wrapper">
+                                <a href="shop-details.html" className="thumbnail-preview">
+                                    <div className="badge">
+                                        <span>25% <br/> 
+                                            Off
+                                        </span>
+                                        <i className="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <img src="assets/images/grocery/05.jpg" alt="grocery"/>
+                                </a>
+                                <div className="action-share-option">
+                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
+                                        <i className="fa-light fa-heart"></i>
+                                    </div>
+                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i className="fa-solid fa-arrows-retweet"></i>
+                                    </div>
+                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                            <div className="body-content">
+
+                                <a href="shop-details.html">
+                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                        Wheat with Milk</h4>
+                                </a>
+                                <span className="availability">500g Pack</span>
+                                <div className="price-area">
+                                    <span className="current">$36.00</span>
+                                    <div className="previous">$36.00</div>
+                                </div>
+                                <div className="cart-counter-action">
+                                    <div className="quantity-edit">
+                                        <input type="text" className="input" defaultValue="1"/>
+                                        <div className="button-wrapper-action">
+                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                        <div className="btn-text">
+                                            Add To Cart
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-20">
+                        <div className="single-shopping-card-one">
+                
+                            <div className="image-and-action-area-wrapper">
+                                <a href="shop-details.html" className="thumbnail-preview">
+                                    <div className="badge">
+                                        <span>25% <br/> 
+                                            Off
+                                        </span>
+                                        <i className="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <img src="assets/images/grocery/06.jpg" alt="grocery"/>
+                                </a>
+                                <div className="action-share-option">
+                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
+                                        <i className="fa-light fa-heart"></i>
+                                    </div>
+                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i className="fa-solid fa-arrows-retweet"></i>
+                                    </div>
+                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                            <div className="body-content">
+
+                                <a href="shop-details.html">
+                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                        Wheat with Milk</h4>
+                                </a>
+                                <span className="availability">500g Pack</span>
+                                <div className="price-area">
+                                    <span className="current">$36.00</span>
+                                    <div className="previous">$36.00</div>
+                                </div>
+                                <div className="cart-counter-action">
+                                    <div className="quantity-edit">
+                                        <input type="text" className="input" defaultValue="1"/>
+                                        <div className="button-wrapper-action">
+                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                        <div className="btn-text">
+                                            Add To Cart
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-20">
+                        <div className="single-shopping-card-one">
+                
+                            <div className="image-and-action-area-wrapper">
+                                <a href="shop-details.html" className="thumbnail-preview">
+                                    <div className="badge">
+                                        <span>25% <br/> 
+                                            Off
+                                        </span>
+                                        <i className="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <img src="assets/images/grocery/03.jpg" alt="grocery"/>
+                                </a>
+                                <div className="action-share-option">
+                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
+                                        <i className="fa-light fa-heart"></i>
+                                    </div>
+                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i className="fa-solid fa-arrows-retweet"></i>
+                                    </div>
+                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                            <div className="body-content">
+
+                                <a href="shop-details.html">
+                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                        Wheat with Milk</h4>
+                                </a>
+                                <span className="availability">500g Pack</span>
+                                <div className="price-area">
+                                    <span className="current">$36.00</span>
+                                    <div className="previous">$36.00</div>
+                                </div>
+                                <div className="cart-counter-action">
+                                    <div className="quantity-edit">
+                                        <input type="text" className="input" defaultValue="1"/>
+                                        <div className="button-wrapper-action">
+                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                        <div className="btn-text">
+                                            Add To Cart
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-20">
+                        <div className="single-shopping-card-one">
+                
+                            <div className="image-and-action-area-wrapper">
+                                <a href="shop-details.html" className="thumbnail-preview">
+                                    <div className="badge">
+                                        <span>25% <br/> 
+                                            Off
+                                        </span>
+                                        <i className="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <img src="assets/images/grocery/05.jpg" alt="grocery"/>
+                                </a>
+                                <div className="action-share-option">
+                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
+                                        <i className="fa-light fa-heart"></i>
+                                    </div>
+                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i className="fa-solid fa-arrows-retweet"></i>
+                                    </div>
+                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                            <div className="body-content">
+
+                                <a href="shop-details.html">
+                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                        Wheat with Milk</h4>
+                                </a>
+                                <span className="availability">500g Pack</span>
+                                <div className="price-area">
+                                    <span className="current">$36.00</span>
+                                    <div className="previous">$36.00</div>
+                                </div>
+                                <div className="cart-counter-action">
+                                    <div className="quantity-edit">
+                                        <input type="text" className="input" defaultValue="1"/>
+                                        <div className="button-wrapper-action">
+                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                        <div className="btn-text">
+                                            Add To Cart
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-20">
+                        <div className="single-shopping-card-one">
+                
+                            <div className="image-and-action-area-wrapper">
+                                <a href="shop-details.html" className="thumbnail-preview">
+                                    <div className="badge">
+                                        <span>25% <br/> 
+                                            Off
+                                        </span>
+                                        <i className="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <img src="assets/images/grocery/02.jpg" alt="grocery"/>
+                                </a>
+                                <div className="action-share-option">
+                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
+                                        <i className="fa-light fa-heart"></i>
+                                    </div>
+                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i className="fa-solid fa-arrows-retweet"></i>
+                                    </div>
+                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                            <div className="body-content">
+
+                                <a href="shop-details.html">
+                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                        Wheat with Milk</h4>
+                                </a>
+                                <span className="availability">500g Pack</span>
+                                <div className="price-area">
+                                    <span className="current">$36.00</span>
+                                    <div className="previous">$36.00</div>
+                                </div>
+                                <div className="cart-counter-action">
+                                    <div className="quantity-edit">
+                                        <input type="text" className="input" defaultValue="1"/>
+                                        <div className="button-wrapper-action">
+                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                        <div className="btn-text">
+                                            Add To Cart
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-20">
+                        <div className="single-shopping-card-one">
+                
+                            <div className="image-and-action-area-wrapper">
+                                <a href="shop-details.html" className="thumbnail-preview">
+                                    <div className="badge">
+                                        <span>25% <br/> 
+                                            Off
+                                        </span>
+                                        <i className="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <img src="assets/images/grocery/06.jpg" alt="grocery"/>
+                                </a>
+                                <div className="action-share-option">
+                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
+                                        <i className="fa-light fa-heart"></i>
+                                    </div>
+                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i className="fa-solid fa-arrows-retweet"></i>
+                                    </div>
+                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                            <div className="body-content">
+
+                                <a href="shop-details.html">
+                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                        Wheat with Milk</h4>
+                                </a>
+                                <span className="availability">500g Pack</span>
+                                <div className="price-area">
+                                    <span className="current">$36.00</span>
+                                    <div className="previous">$36.00</div>
+                                </div>
+                                <div className="cart-counter-action">
+                                    <div className="quantity-edit">
+                                        <input type="text" className="input" defaultValue="1"/>
+                                        <div className="button-wrapper-action">
+                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                        <div className="btn-text">
+                                            Add To Cart
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-20">
+                        <div className="single-shopping-card-one">
+                
+                            <div className="image-and-action-area-wrapper">
+                                <a href="shop-details.html" className="thumbnail-preview">
+                                    <div className="badge">
+                                        <span>25% <br/> 
+                                            Off
+                                        </span>
+                                        <i className="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <img src="assets/images/grocery/01.jpg" alt="grocery"/>
+                                </a>
+                                <div className="action-share-option">
+                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
+                                        <i className="fa-light fa-heart"></i>
+                                    </div>
+                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i className="fa-solid fa-arrows-retweet"></i>
+                                    </div>
+                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                            <div className="body-content">
+
+                                <a href="shop-details.html">
+                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                        Wheat with Milk</h4>
+                                </a>
+                                <span className="availability">500g Pack</span>
+                                <div className="price-area">
+                                    <span className="current">$36.00</span>
+                                    <div className="previous">$36.00</div>
+                                </div>
+                                <div className="cart-counter-action">
+                                    <div className="quantity-edit">
+                                        <input type="text" className="input" defaultValue="1"/>
+                                        <div className="button-wrapper-action">
+                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                        <div className="btn-text">
+                                            Add To Cart
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-20">
+                        <div className="single-shopping-card-one">
+                
+                            <div className="image-and-action-area-wrapper">
+                                <a href="shop-details.html" className="thumbnail-preview">
+                                    <div className="badge">
+                                        <span>25% <br/> 
+                                            Off
+                                        </span>
+                                        <i className="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <img src="assets/images/grocery/02.jpg" alt="grocery"/>
+                                </a>
+                                <div className="action-share-option">
+                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
+                                        <i className="fa-light fa-heart"></i>
+                                    </div>
+                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i className="fa-solid fa-arrows-retweet"></i>
+                                    </div>
+                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                            <div className="body-content">
+
+                                <a href="shop-details.html">
+                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                        Wheat with Milk</h4>
+                                </a>
+                                <span className="availability">500g Pack</span>
+                                <div className="price-area">
+                                    <span className="current">$36.00</span>
+                                    <div className="previous">$36.00</div>
+                                </div>
+                                <div className="cart-counter-action">
+                                    <div className="quantity-edit">
+                                        <input type="text" className="input" defaultValue="1"/>
+                                        <div className="button-wrapper-action">
+                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                        <div className="btn-text">
+                                            Add To Cart
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-20">
+                        <div className="single-shopping-card-one">
+                
+                            <div className="image-and-action-area-wrapper">
+                                <a href="shop-details.html" className="thumbnail-preview">
+                                    <div className="badge">
+                                        <span>25% <br/> 
+                                            Off
+                                        </span>
+                                        <i className="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <img src="assets/images/grocery/03.jpg" alt="grocery"/>
+                                </a>
+                                <div className="action-share-option">
+                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
+                                        <i className="fa-light fa-heart"></i>
+                                    </div>
+                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i className="fa-solid fa-arrows-retweet"></i>
+                                    </div>
+                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                            <div className="body-content">
+
+                                <a href="shop-details.html">
+                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                        Wheat with Milk</h4>
+                                </a>
+                                <span className="availability">500g Pack</span>
+                                <div className="price-area">
+                                    <span className="current">$36.00</span>
+                                    <div className="previous">$36.00</div>
+                                </div>
+                                <div className="cart-counter-action">
+                                    <div className="quantity-edit">
+                                        <input type="text" className="input" defaultValue="1"/>
+                                        <div className="button-wrapper-action">
+                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                        <div className="btn-text">
+                                            Add To Cart
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-20">
+                        <div className="single-shopping-card-one">
+                
+                            <div className="image-and-action-area-wrapper">
+                                <a href="shop-details.html" className="thumbnail-preview">
+                                    <div className="badge">
+                                        <span>25% <br/> 
+                                            Off
+                                        </span>
+                                        <i className="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <img src="assets/images/grocery/04.jpg" alt="grocery"/>
+                                </a>
+                                <div className="action-share-option">
+                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
+                                        <i className="fa-light fa-heart"></i>
+                                    </div>
+                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i className="fa-solid fa-arrows-retweet"></i>
+                                    </div>
+                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                            <div className="body-content">
+
+                                <a href="shop-details.html">
+                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                        Wheat with Milk</h4>
+                                </a>
+                                <span className="availability">500g Pack</span>
+                                <div className="price-area">
+                                    <span className="current">$36.00</span>
+                                    <div className="previous">$36.00</div>
+                                </div>
+                                <div className="cart-counter-action">
+                                    <div className="quantity-edit">
+                                        <input type="text" className="input" defaultValue="1"/>
+                                        <div className="button-wrapper-action">
+                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                        <div className="btn-text">
+                                            Add To Cart
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-20">
+                        <div className="single-shopping-card-one">
+                
+                            <div className="image-and-action-area-wrapper">
+                                <a href="shop-details.html" className="thumbnail-preview">
+                                    <div className="badge">
+                                        <span>25% <br/> 
+                                            Off
+                                        </span>
+                                        <i className="fa-solid fa-bookmark"></i>
+                                    </div>
+                                    <img src="assets/images/grocery/05.jpg" alt="grocery"/>
+                                </a>
+                                <div className="action-share-option">
+                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
+                                        <i className="fa-light fa-heart"></i>
+                                    </div>
+                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i className="fa-solid fa-arrows-retweet"></i>
+                                    </div>
+                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
+                                        <i className="fa-regular fa-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+                
+
+                            <div className="body-content">
+
+                                <a href="shop-details.html">
+                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                        Wheat with Milk</h4>
+                                </a>
+                                <span className="availability">500g Pack</span>
+                                <div className="price-area">
+                                    <span className="current">$36.00</span>
+                                    <div className="previous">$36.00</div>
+                                </div>
+                                <div className="cart-counter-action">
+                                    <div className="quantity-edit">
+                                        <input type="text" className="input" defaultValue="1"/>
+                                        <div className="button-wrapper-action">
+                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                        <div className="btn-text">
+                                            Add To Cart
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                        <div className="arrow-icon">
+                                            <i className="fa-regular fa-cart-shopping"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="product-area-wrapper-shopgrid-list with-list mt--20 tab-pane fade  show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabIndex="0">
+                <div className="row">
+                    <div className="col-lg-6">
+                        <div className="single-shopping-card-one discount-offer">
+                            <a href="shop-details.html" className="thumbnail-preview">
+                                <div className="badge">
+                                    <span>25% <br/> 
+                                        Off
+                                    </span>
+                                    <i className="fa-solid fa-bookmark"></i>
+                                </div>
+                                <img src="assets/images/grocery/03.jpg" alt="grocery"/>
+                            </a>
+                            <div className="body-content">
+                                <div className="title-area-left">
+                                    <a href="shop-details.html">
+                                        <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                            Wheat with Milk</h4>
+                                    </a>
+                                    <span className="availability">500g Pack</span>
+                                    <div className="price-area">
+                                        <span className="current">$36.00</span>
+                                        <div className="previous">$36.00</div>
+                                    </div>
+                                    <div className="cart-counter-action">
+                                        <div className="quantity-edit">
+                                            <input type="text" className="input" defaultValue="1"/>
+                                            <div className="button-wrapper-action">
+                                                <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                                <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                            </div>
+                                        </div>
+                                        <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                            <div className="btn-text">
+                                                Add To Cart
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="natural-value">
+                                    <h6 className="title">
+                                        Nutritional Values
+                                    </h6>
+                                    <div className="single">
+                                        <span>Energy(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Protein(g):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>magnetiam(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Calory(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Vitamine(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="single-shopping-card-one discount-offer">
+                            <a href="shop-details.html" className="thumbnail-preview">
+                                <div className="badge">
+                                    <span>25% <br/> 
+                                        Off
+                                    </span>
+                                    <i className="fa-solid fa-bookmark"></i>
+                                </div>
+                                <img src="assets/images/grocery/04.jpg" alt="grocery"/>
+                            </a>
+                            <div className="body-content">
+                                <div className="title-area-left">
+                                    <a href="shop-details.html">
+                                        <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                            Wheat with Milk</h4>
+                                    </a>
+                                    <span className="availability">500g Pack</span>
+                                    <div className="price-area">
+                                        <span className="current">$36.00</span>
+                                        <div className="previous">$36.00</div>
+                                    </div>
+                                    <div className="cart-counter-action">
+                                        <div className="quantity-edit">
+                                            <input type="text" className="input" defaultValue="1"/>
+                                            <div className="button-wrapper-action">
+                                                <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                                <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                            </div>
+                                        </div>
+                                        <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                            <div className="btn-text">
+                                                Add To Cart
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="natural-value">
+                                    <h6 className="title">
+                                        Nutritional Values
+                                    </h6>
+                                    <div className="single">
+                                        <span>Energy(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Protein(g):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>magnetiam(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Calory(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Vitamine(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="single-shopping-card-one discount-offer">
+                            <a href="shop-details.html" className="thumbnail-preview">
+                                <div className="badge">
+                                    <span>25% <br/> 
+                                        Off
+                                    </span>
+                                    <i className="fa-solid fa-bookmark"></i>
+                                </div>
+                                <img src="assets/images/grocery/05.jpg" alt="grocery"/>
+                            </a>
+                            <div className="body-content">
+                                <div className="title-area-left">
+                                    <a href="shop-details.html">
+                                        <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                            Wheat with Milk</h4>
+                                    </a>
+                                    <span className="availability">500g Pack</span>
+                                    <div className="price-area">
+                                        <span className="current">$36.00</span>
+                                        <div className="previous">$36.00</div>
+                                    </div>
+                                    <div className="cart-counter-action">
+                                        <div className="quantity-edit">
+                                            <input type="text" className="input" defaultValue="1"/>
+                                            <div className="button-wrapper-action">
+                                                <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                                <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                            </div>
+                                        </div>
+                                        <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                            <div className="btn-text">
+                                                Add To Cart
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="natural-value">
+                                    <h6 className="title">
+                                        Nutritional Values
+                                    </h6>
+                                    <div className="single">
+                                        <span>Energy(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Protein(g):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>magnetiam(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Calory(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Vitamine(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="single-shopping-card-one discount-offer">
+                            <a href="shop-details.html" className="thumbnail-preview">
+                                <div className="badge">
+                                    <span>25% <br/> 
+                                        Off
+                                    </span>
+                                    <i className="fa-solid fa-bookmark"></i>
+                                </div>
+                                <img src="assets/images/grocery/06.jpg" alt="grocery"/>
+                            </a>
+                            <div className="body-content">
+                                <div className="title-area-left">
+                                    <a href="shop-details.html">
+                                        <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                            Wheat with Milk</h4>
+                                    </a>
+                                    <span className="availability">500g Pack</span>
+                                    <div className="price-area">
+                                        <span className="current">$36.00</span>
+                                        <div className="previous">$36.00</div>
+                                    </div>
+                                    <div className="cart-counter-action">
+                                        <div className="quantity-edit">
+                                            <input type="text" className="input" defaultValue="1"/>
+                                            <div className="button-wrapper-action">
+                                                <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                                <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                            </div>
+                                        </div>
+                                        <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                            <div className="btn-text">
+                                                Add To Cart
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="natural-value">
+                                    <h6 className="title">
+                                        Nutritional Values
+                                    </h6>
+                                    <div className="single">
+                                        <span>Energy(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Protein(g):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>magnetiam(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Calory(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Vitamine(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="single-shopping-card-one discount-offer">
+                            <a href="shop-details.html" className="thumbnail-preview">
+                                <div className="badge">
+                                    <span>25% <br/> 
+                                        Off
+                                    </span>
+                                    <i className="fa-solid fa-bookmark"></i>
+                                </div>
+                                <img src="assets/images/grocery/01.jpg" alt="grocery"/>
+                            </a>
+                            <div className="body-content">
+                                <div className="title-area-left">
+                                    <a href="shop-details.html">
+                                        <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                            Wheat with Milk</h4>
+                                    </a>
+                                    <span className="availability">500g Pack</span>
+                                    <div className="price-area">
+                                        <span className="current">$36.00</span>
+                                        <div className="previous">$36.00</div>
+                                    </div>
+                                    <div className="cart-counter-action">
+                                        <div className="quantity-edit">
+                                            <input type="text" className="input" defaultValue="1"/>
+                                            <div className="button-wrapper-action">
+                                                <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                                <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                            </div>
+                                        </div>
+                                        <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                            <div className="btn-text">
+                                                Add To Cart
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="natural-value">
+                                    <h6 className="title">
+                                        Nutritional Values
+                                    </h6>
+                                    <div className="single">
+                                        <span>Energy(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Protein(g):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>magnetiam(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Calory(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Vitamine(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-6">
+                        <div className="single-shopping-card-one discount-offer">
+                            <a href="shop-details.html" className="thumbnail-preview">
+                                <div className="badge">
+                                    <span>25% <br/> 
+                                        Off
+                                    </span>
+                                    <i className="fa-solid fa-bookmark"></i>
+                                </div>
+                                <img src="assets/images/grocery/03.jpg" alt="grocery"/>
+                            </a>
+                            <div className="body-content">
+                                <div className="title-area-left">
+                                    <a href="shop-details.html">
+                                        <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                            Wheat with Milk</h4>
+                                    </a>
+                                    <span className="availability">500g Pack</span>
+                                    <div className="price-area">
+                                        <span className="current">$36.00</span>
+                                        <div className="previous">$36.00</div>
+                                    </div>
+                                    <div className="cart-counter-action">
+                                        <div className="quantity-edit">
+                                            <input type="text" className="input" defaultValue="1"/>
+                                            <div className="button-wrapper-action">
+                                                <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                                <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                            </div>
+                                        </div>
+                                        <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                            <div className="btn-text">
+                                                Add To Cart
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="natural-value">
+                                    <h6 className="title">
+                                        Nutritional Values
+                                    </h6>
+                                    <div className="single">
+                                        <span>Energy(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Protein(g):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>magnetiam(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Calory(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Vitamine(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="single-shopping-card-one discount-offer">
+                            <a href="shop-details.html" className="thumbnail-preview">
+                                <div className="badge">
+                                    <span>25% <br/> 
+                                        Off
+                                    </span>
+                                    <i className="fa-solid fa-bookmark"></i>
+                                </div>
+                                <img src="assets/images/grocery/04.jpg" alt="grocery"/>
+                            </a>
+                            <div className="body-content">
+                                <div className="title-area-left">
+                                    <a href="shop-details.html">
+                                        <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                            Wheat with Milk</h4>
+                                    </a>
+                                    <span className="availability">500g Pack</span>
+                                    <div className="price-area">
+                                        <span className="current">$36.00</span>
+                                        <div className="previous">$36.00</div>
+                                    </div>
+                                    <div className="cart-counter-action">
+                                        <div className="quantity-edit">
+                                            <input type="text" className="input" defaultValue="1"/>
+                                            <div className="button-wrapper-action">
+                                                <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                                <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                            </div>
+                                        </div>
+                                        <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                            <div className="btn-text">
+                                                Add To Cart
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="natural-value">
+                                    <h6 className="title">
+                                        Nutritional Values
+                                    </h6>
+                                    <div className="single">
+                                        <span>Energy(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Protein(g):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>magnetiam(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Calory(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Vitamine(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="single-shopping-card-one discount-offer">
+                            <a href="shop-details.html" className="thumbnail-preview">
+                                <div className="badge">
+                                    <span>25% <br/> 
+                                        Off
+                                    </span>
+                                    <i className="fa-solid fa-bookmark"></i>
+                                </div>
+                                <img src="assets/images/grocery/05.jpg" alt="grocery"/>
+                            </a>
+                            <div className="body-content">
+                                <div className="title-area-left">
+                                    <a href="shop-details.html">
+                                        <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                            Wheat with Milk</h4>
+                                    </a>
+                                    <span className="availability">500g Pack</span>
+                                    <div className="price-area">
+                                        <span className="current">$36.00</span>
+                                        <div className="previous">$36.00</div>
+                                    </div>
+                                    <div className="cart-counter-action">
+                                        <div className="quantity-edit">
+                                            <input type="text" className="input" defaultValue="1"/>
+                                            <div className="button-wrapper-action">
+                                                <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                                <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                            </div>
+                                        </div>
+                                        <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                            <div className="btn-text">
+                                                Add To Cart
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="natural-value">
+                                    <h6 className="title">
+                                        Nutritional Values
+                                    </h6>
+                                    <div className="single">
+                                        <span>Energy(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Protein(g):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>magnetiam(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Calory(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Vitamine(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="single-shopping-card-one discount-offer">
+                            <a href="shop-details.html" className="thumbnail-preview">
+                                <div className="badge">
+                                    <span>25% <br/> 
+                                        Off
+                                    </span>
+                                    <i className="fa-solid fa-bookmark"></i>
+                                </div>
+                                <img src="assets/images/grocery/06.jpg" alt="grocery"/>
+                            </a>
+                            <div className="body-content">
+                                <div className="title-area-left">
+                                    <a href="shop-details.html">
+                                        <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                            Wheat with Milk</h4>
+                                    </a>
+                                    <span className="availability">500g Pack</span>
+                                    <div className="price-area">
+                                        <span className="current">$36.00</span>
+                                        <div className="previous">$36.00</div>
+                                    </div>
+                                    <div className="cart-counter-action">
+                                        <div className="quantity-edit">
+                                            <input type="text" className="input" defaultValue="1"/>
+                                            <div className="button-wrapper-action">
+                                                <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                                <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                            </div>
+                                        </div>
+                                        <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                            <div className="btn-text">
+                                                Add To Cart
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="natural-value">
+                                    <h6 className="title">
+                                        Nutritional Values
+                                    </h6>
+                                    <div className="single">
+                                        <span>Energy(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Protein(g):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>magnetiam(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Calory(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Vitamine(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="single-shopping-card-one discount-offer">
+                            <a href="shop-details.html" className="thumbnail-preview">
+                                <div className="badge">
+                                    <span>25% <br/> 
+                                        Off
+                                    </span>
+                                    <i className="fa-solid fa-bookmark"></i>
+                                </div>
+                                <img src="assets/images/grocery/01.jpg" alt="grocery"/>
+                            </a>
+                            <div className="body-content">
+                                <div className="title-area-left">
+                                    <a href="shop-details.html">
+                                        <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
+                                            Wheat with Milk</h4>
+                                    </a>
+                                    <span className="availability">500g Pack</span>
+                                    <div className="price-area">
+                                        <span className="current">$36.00</span>
+                                        <div className="previous">$36.00</div>
+                                    </div>
+                                    <div className="cart-counter-action">
+                                        <div className="quantity-edit">
+                                            <input type="text" className="input" defaultValue="1"/>
+                                            <div className="button-wrapper-action">
+                                                <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                                                <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                                            </div>
+                                        </div>
+                                        <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                                            <div className="btn-text">
+                                                Add To Cart
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                            <div className="arrow-icon">
+                                                <i className="fa-regular fa-cart-shopping"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="natural-value">
+                                    <h6 className="title">
+                                        Nutritional Values
+                                    </h6>
+                                    <div className="single">
+                                        <span>Energy(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Protein(g):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>magnetiam(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Calory(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                    <div className="single">
+                                        <span>Vitamine(kcal):</span>
+                                        <span>211</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default SearchResult
