@@ -16,9 +16,11 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="http://localhost:3000/assets/css/style.css" />
       </head>
       <body>
-        <Header />
-        <Providers>{children}</Providers>
-        <Footer />
+        <Providers>
+          <Header />
+            {children}
+          <Footer />
+        </Providers>
         <Script src="http://localhost:3000/assets/js/plugins.js" strategy="afterInteractive" />
         <Script src="http://localhost:3000/assets/js/main.js" strategy="afterInteractive" />
       </body>

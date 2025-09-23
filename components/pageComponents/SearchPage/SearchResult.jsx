@@ -1,6 +1,16 @@
+'use client'
+
 import React from 'react'
+import { useGetProductsQuery } from '@/store/api'
+import ProductCard from '@/components/common/ProductCard'
 
 const SearchResult = () => {
+  const { data: products, isLoading, error } = useGetProductsQuery();
+
+  console.log(products)
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading products</div>;
+
   return (
     <div>
         <div className="filter-select-area">
@@ -84,6 +94,13 @@ const SearchResult = () => {
         <div className="tab-content" id="myTabContent">
             <div className="product-area-wrapper-shopgrid-list mt--20 tab-pane fade" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabIndex="0">
                 <div className="row g-4">
+                    {
+                        products && products.map((product, index) => (
+                            <div className="col-lg-20" key={index}>
+                                <ProductCard product={product} />
+                            </div>
+                        ))
+                    }
                     <div className="col-lg-20">
                         <div className="single-shopping-card-one">
                 
@@ -95,861 +112,7 @@ const SearchResult = () => {
                                         </span>
                                         <i className="fa-solid fa-bookmark"></i>
                                     </div>
-                                    <img src="assets/images/grocery/01.jpg" alt="grocery"/>
-                                </a>
-                                <div className="action-share-option">
-                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
-                                        <i className="fa-light fa-heart"></i>
-                                    </div>
-                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i className="fa-solid fa-arrows-retweet"></i>
-                                    </div>
-                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
-                                        <i className="fa-regular fa-eye"></i>
-                                    </div>
-                                </div>
-                            </div>
-                
-
-                            <div className="body-content">
-
-                                <a href="shop-details.html">
-                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
-                                        Wheat with Milk</h4>
-                                </a>
-                                <span className="availability">500g Pack</span>
-                                <div className="price-area">
-                                    <span className="current">$36.00</span>
-                                    <div className="previous">$36.00</div>
-                                </div>
-                                <div className="cart-counter-action">
-                                    <div className="quantity-edit">
-                                        <input type="text" className="input" defaultValue="1"/>
-                                        <div className="button-wrapper-action">
-                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
-                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
-                                        </div>
-                                    </div>
-                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
-                                        <div className="btn-text">
-                                            Add To Cart
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-20">
-                        <div className="single-shopping-card-one">
-                
-                            <div className="image-and-action-area-wrapper">
-                                <a href="shop-details.html" className="thumbnail-preview">
-                                    <div className="badge">
-                                        <span>25% <br/> 
-                                            Off
-                                        </span>
-                                        <i className="fa-solid fa-bookmark"></i>
-                                    </div>
-                                    <img src="assets/images/grocery/02.jpg" alt="grocery"/>
-                                </a>
-                                <div className="action-share-option">
-                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
-                                        <i className="fa-light fa-heart"></i>
-                                    </div>
-                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i className="fa-solid fa-arrows-retweet"></i>
-                                    </div>
-                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
-                                        <i className="fa-regular fa-eye"></i>
-                                    </div>
-                                </div>
-                            </div>
-                
-
-                            <div className="body-content">
-
-                                <a href="shop-details.html">
-                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
-                                        Wheat with Milk</h4>
-                                </a>
-                                <span className="availability">500g Pack</span>
-                                <div className="price-area">
-                                    <span className="current">$36.00</span>
-                                    <div className="previous">$36.00</div>
-                                </div>
-                                <div className="cart-counter-action">
-                                    <div className="quantity-edit">
-                                        <input type="text" className="input" defaultValue="1"/>
-                                        <div className="button-wrapper-action">
-                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
-                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
-                                        </div>
-                                    </div>
-                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
-                                        <div className="btn-text">
-                                            Add To Cart
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-20">
-                        <div className="single-shopping-card-one">
-                
-                            <div className="image-and-action-area-wrapper">
-                                <a href="shop-details.html" className="thumbnail-preview">
-                                    <div className="badge">
-                                        <span>25% <br/> 
-                                            Off
-                                        </span>
-                                        <i className="fa-solid fa-bookmark"></i>
-                                    </div>
-                                    <img src="assets/images/grocery/03.jpg" alt="grocery"/>
-                                </a>
-                                <div className="action-share-option">
-                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
-                                        <i className="fa-light fa-heart"></i>
-                                    </div>
-                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i className="fa-solid fa-arrows-retweet"></i>
-                                    </div>
-                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
-                                        <i className="fa-regular fa-eye"></i>
-                                    </div>
-                                </div>
-                            </div>
-                
-
-                            <div className="body-content">
-
-                                <a href="shop-details.html">
-                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
-                                        Wheat with Milk</h4>
-                                </a>
-                                <span className="availability">500g Pack</span>
-                                <div className="price-area">
-                                    <span className="current">$36.00</span>
-                                    <div className="previous">$36.00</div>
-                                </div>
-                                <div className="cart-counter-action">
-                                    <div className="quantity-edit">
-                                        <input type="text" className="input" defaultValue="1"/>
-                                        <div className="button-wrapper-action">
-                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
-                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
-                                        </div>
-                                    </div>
-                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
-                                        <div className="btn-text">
-                                            Add To Cart
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-20">
-                        <div className="single-shopping-card-one">
-                
-                            <div className="image-and-action-area-wrapper">
-                                <a href="shop-details.html" className="thumbnail-preview">
-                                    <div className="badge">
-                                        <span>25% <br/> 
-                                            Off
-                                        </span>
-                                        <i className="fa-solid fa-bookmark"></i>
-                                    </div>
-                                    <img src="assets/images/grocery/04.jpg" alt="grocery"/>
-                                </a>
-                                <div className="action-share-option">
-                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
-                                        <i className="fa-light fa-heart"></i>
-                                    </div>
-                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i className="fa-solid fa-arrows-retweet"></i>
-                                    </div>
-                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
-                                        <i className="fa-regular fa-eye"></i>
-                                    </div>
-                                </div>
-                            </div>
-                
-
-                            <div className="body-content">
-
-                                <a href="shop-details.html">
-                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
-                                        Wheat with Milk</h4>
-                                </a>
-                                <span className="availability">500g Pack</span>
-                                <div className="price-area">
-                                    <span className="current">$36.00</span>
-                                    <div className="previous">$36.00</div>
-                                </div>
-                                <div className="cart-counter-action">
-                                    <div className="quantity-edit">
-                                        <input type="text" className="input" defaultValue="1"/>
-                                        <div className="button-wrapper-action">
-                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
-                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
-                                        </div>
-                                    </div>
-                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
-                                        <div className="btn-text">
-                                            Add To Cart
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-20">
-                        <div className="single-shopping-card-one">
-                
-                            <div className="image-and-action-area-wrapper">
-                                <a href="shop-details.html" className="thumbnail-preview">
-                                    <div className="badge">
-                                        <span>25% <br/> 
-                                            Off
-                                        </span>
-                                        <i className="fa-solid fa-bookmark"></i>
-                                    </div>
-                                    <img src="assets/images/grocery/05.jpg" alt="grocery"/>
-                                </a>
-                                <div className="action-share-option">
-                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
-                                        <i className="fa-light fa-heart"></i>
-                                    </div>
-                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i className="fa-solid fa-arrows-retweet"></i>
-                                    </div>
-                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
-                                        <i className="fa-regular fa-eye"></i>
-                                    </div>
-                                </div>
-                            </div>
-                
-
-                            <div className="body-content">
-
-                                <a href="shop-details.html">
-                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
-                                        Wheat with Milk</h4>
-                                </a>
-                                <span className="availability">500g Pack</span>
-                                <div className="price-area">
-                                    <span className="current">$36.00</span>
-                                    <div className="previous">$36.00</div>
-                                </div>
-                                <div className="cart-counter-action">
-                                    <div className="quantity-edit">
-                                        <input type="text" className="input" defaultValue="1"/>
-                                        <div className="button-wrapper-action">
-                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
-                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
-                                        </div>
-                                    </div>
-                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
-                                        <div className="btn-text">
-                                            Add To Cart
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-20">
-                        <div className="single-shopping-card-one">
-                
-                            <div className="image-and-action-area-wrapper">
-                                <a href="shop-details.html" className="thumbnail-preview">
-                                    <div className="badge">
-                                        <span>25% <br/> 
-                                            Off
-                                        </span>
-                                        <i className="fa-solid fa-bookmark"></i>
-                                    </div>
-                                    <img src="assets/images/grocery/06.jpg" alt="grocery"/>
-                                </a>
-                                <div className="action-share-option">
-                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
-                                        <i className="fa-light fa-heart"></i>
-                                    </div>
-                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i className="fa-solid fa-arrows-retweet"></i>
-                                    </div>
-                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
-                                        <i className="fa-regular fa-eye"></i>
-                                    </div>
-                                </div>
-                            </div>
-                
-
-                            <div className="body-content">
-
-                                <a href="shop-details.html">
-                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
-                                        Wheat with Milk</h4>
-                                </a>
-                                <span className="availability">500g Pack</span>
-                                <div className="price-area">
-                                    <span className="current">$36.00</span>
-                                    <div className="previous">$36.00</div>
-                                </div>
-                                <div className="cart-counter-action">
-                                    <div className="quantity-edit">
-                                        <input type="text" className="input" defaultValue="1"/>
-                                        <div className="button-wrapper-action">
-                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
-                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
-                                        </div>
-                                    </div>
-                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
-                                        <div className="btn-text">
-                                            Add To Cart
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-20">
-                        <div className="single-shopping-card-one">
-                
-                            <div className="image-and-action-area-wrapper">
-                                <a href="shop-details.html" className="thumbnail-preview">
-                                    <div className="badge">
-                                        <span>25% <br/> 
-                                            Off
-                                        </span>
-                                        <i className="fa-solid fa-bookmark"></i>
-                                    </div>
-                                    <img src="assets/images/grocery/03.jpg" alt="grocery"/>
-                                </a>
-                                <div className="action-share-option">
-                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
-                                        <i className="fa-light fa-heart"></i>
-                                    </div>
-                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i className="fa-solid fa-arrows-retweet"></i>
-                                    </div>
-                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
-                                        <i className="fa-regular fa-eye"></i>
-                                    </div>
-                                </div>
-                            </div>
-                
-
-                            <div className="body-content">
-
-                                <a href="shop-details.html">
-                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
-                                        Wheat with Milk</h4>
-                                </a>
-                                <span className="availability">500g Pack</span>
-                                <div className="price-area">
-                                    <span className="current">$36.00</span>
-                                    <div className="previous">$36.00</div>
-                                </div>
-                                <div className="cart-counter-action">
-                                    <div className="quantity-edit">
-                                        <input type="text" className="input" defaultValue="1"/>
-                                        <div className="button-wrapper-action">
-                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
-                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
-                                        </div>
-                                    </div>
-                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
-                                        <div className="btn-text">
-                                            Add To Cart
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-20">
-                        <div className="single-shopping-card-one">
-                
-                            <div className="image-and-action-area-wrapper">
-                                <a href="shop-details.html" className="thumbnail-preview">
-                                    <div className="badge">
-                                        <span>25% <br/> 
-                                            Off
-                                        </span>
-                                        <i className="fa-solid fa-bookmark"></i>
-                                    </div>
-                                    <img src="assets/images/grocery/05.jpg" alt="grocery"/>
-                                </a>
-                                <div className="action-share-option">
-                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
-                                        <i className="fa-light fa-heart"></i>
-                                    </div>
-                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i className="fa-solid fa-arrows-retweet"></i>
-                                    </div>
-                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
-                                        <i className="fa-regular fa-eye"></i>
-                                    </div>
-                                </div>
-                            </div>
-                
-
-                            <div className="body-content">
-
-                                <a href="shop-details.html">
-                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
-                                        Wheat with Milk</h4>
-                                </a>
-                                <span className="availability">500g Pack</span>
-                                <div className="price-area">
-                                    <span className="current">$36.00</span>
-                                    <div className="previous">$36.00</div>
-                                </div>
-                                <div className="cart-counter-action">
-                                    <div className="quantity-edit">
-                                        <input type="text" className="input" defaultValue="1"/>
-                                        <div className="button-wrapper-action">
-                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
-                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
-                                        </div>
-                                    </div>
-                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
-                                        <div className="btn-text">
-                                            Add To Cart
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-20">
-                        <div className="single-shopping-card-one">
-                
-                            <div className="image-and-action-area-wrapper">
-                                <a href="shop-details.html" className="thumbnail-preview">
-                                    <div className="badge">
-                                        <span>25% <br/> 
-                                            Off
-                                        </span>
-                                        <i className="fa-solid fa-bookmark"></i>
-                                    </div>
-                                    <img src="assets/images/grocery/02.jpg" alt="grocery"/>
-                                </a>
-                                <div className="action-share-option">
-                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
-                                        <i className="fa-light fa-heart"></i>
-                                    </div>
-                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i className="fa-solid fa-arrows-retweet"></i>
-                                    </div>
-                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
-                                        <i className="fa-regular fa-eye"></i>
-                                    </div>
-                                </div>
-                            </div>
-                
-
-                            <div className="body-content">
-
-                                <a href="shop-details.html">
-                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
-                                        Wheat with Milk</h4>
-                                </a>
-                                <span className="availability">500g Pack</span>
-                                <div className="price-area">
-                                    <span className="current">$36.00</span>
-                                    <div className="previous">$36.00</div>
-                                </div>
-                                <div className="cart-counter-action">
-                                    <div className="quantity-edit">
-                                        <input type="text" className="input" defaultValue="1"/>
-                                        <div className="button-wrapper-action">
-                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
-                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
-                                        </div>
-                                    </div>
-                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
-                                        <div className="btn-text">
-                                            Add To Cart
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-20">
-                        <div className="single-shopping-card-one">
-                
-                            <div className="image-and-action-area-wrapper">
-                                <a href="shop-details.html" className="thumbnail-preview">
-                                    <div className="badge">
-                                        <span>25% <br/> 
-                                            Off
-                                        </span>
-                                        <i className="fa-solid fa-bookmark"></i>
-                                    </div>
-                                    <img src="assets/images/grocery/06.jpg" alt="grocery"/>
-                                </a>
-                                <div className="action-share-option">
-                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
-                                        <i className="fa-light fa-heart"></i>
-                                    </div>
-                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i className="fa-solid fa-arrows-retweet"></i>
-                                    </div>
-                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
-                                        <i className="fa-regular fa-eye"></i>
-                                    </div>
-                                </div>
-                            </div>
-                
-
-                            <div className="body-content">
-
-                                <a href="shop-details.html">
-                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
-                                        Wheat with Milk</h4>
-                                </a>
-                                <span className="availability">500g Pack</span>
-                                <div className="price-area">
-                                    <span className="current">$36.00</span>
-                                    <div className="previous">$36.00</div>
-                                </div>
-                                <div className="cart-counter-action">
-                                    <div className="quantity-edit">
-                                        <input type="text" className="input" defaultValue="1"/>
-                                        <div className="button-wrapper-action">
-                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
-                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
-                                        </div>
-                                    </div>
-                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
-                                        <div className="btn-text">
-                                            Add To Cart
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-20">
-                        <div className="single-shopping-card-one">
-                
-                            <div className="image-and-action-area-wrapper">
-                                <a href="shop-details.html" className="thumbnail-preview">
-                                    <div className="badge">
-                                        <span>25% <br/> 
-                                            Off
-                                        </span>
-                                        <i className="fa-solid fa-bookmark"></i>
-                                    </div>
-                                    <img src="assets/images/grocery/01.jpg" alt="grocery"/>
-                                </a>
-                                <div className="action-share-option">
-                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
-                                        <i className="fa-light fa-heart"></i>
-                                    </div>
-                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i className="fa-solid fa-arrows-retweet"></i>
-                                    </div>
-                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
-                                        <i className="fa-regular fa-eye"></i>
-                                    </div>
-                                </div>
-                            </div>
-                
-
-                            <div className="body-content">
-
-                                <a href="shop-details.html">
-                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
-                                        Wheat with Milk</h4>
-                                </a>
-                                <span className="availability">500g Pack</span>
-                                <div className="price-area">
-                                    <span className="current">$36.00</span>
-                                    <div className="previous">$36.00</div>
-                                </div>
-                                <div className="cart-counter-action">
-                                    <div className="quantity-edit">
-                                        <input type="text" className="input" defaultValue="1"/>
-                                        <div className="button-wrapper-action">
-                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
-                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
-                                        </div>
-                                    </div>
-                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
-                                        <div className="btn-text">
-                                            Add To Cart
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-20">
-                        <div className="single-shopping-card-one">
-                
-                            <div className="image-and-action-area-wrapper">
-                                <a href="shop-details.html" className="thumbnail-preview">
-                                    <div className="badge">
-                                        <span>25% <br/> 
-                                            Off
-                                        </span>
-                                        <i className="fa-solid fa-bookmark"></i>
-                                    </div>
-                                    <img src="assets/images/grocery/02.jpg" alt="grocery"/>
-                                </a>
-                                <div className="action-share-option">
-                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
-                                        <i className="fa-light fa-heart"></i>
-                                    </div>
-                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i className="fa-solid fa-arrows-retweet"></i>
-                                    </div>
-                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
-                                        <i className="fa-regular fa-eye"></i>
-                                    </div>
-                                </div>
-                            </div>
-                
-
-                            <div className="body-content">
-
-                                <a href="shop-details.html">
-                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
-                                        Wheat with Milk</h4>
-                                </a>
-                                <span className="availability">500g Pack</span>
-                                <div className="price-area">
-                                    <span className="current">$36.00</span>
-                                    <div className="previous">$36.00</div>
-                                </div>
-                                <div className="cart-counter-action">
-                                    <div className="quantity-edit">
-                                        <input type="text" className="input" defaultValue="1"/>
-                                        <div className="button-wrapper-action">
-                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
-                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
-                                        </div>
-                                    </div>
-                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
-                                        <div className="btn-text">
-                                            Add To Cart
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-20">
-                        <div className="single-shopping-card-one">
-                
-                            <div className="image-and-action-area-wrapper">
-                                <a href="shop-details.html" className="thumbnail-preview">
-                                    <div className="badge">
-                                        <span>25% <br/> 
-                                            Off
-                                        </span>
-                                        <i className="fa-solid fa-bookmark"></i>
-                                    </div>
-                                    <img src="assets/images/grocery/03.jpg" alt="grocery"/>
-                                </a>
-                                <div className="action-share-option">
-                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
-                                        <i className="fa-light fa-heart"></i>
-                                    </div>
-                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i className="fa-solid fa-arrows-retweet"></i>
-                                    </div>
-                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
-                                        <i className="fa-regular fa-eye"></i>
-                                    </div>
-                                </div>
-                            </div>
-                
-
-                            <div className="body-content">
-
-                                <a href="shop-details.html">
-                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
-                                        Wheat with Milk</h4>
-                                </a>
-                                <span className="availability">500g Pack</span>
-                                <div className="price-area">
-                                    <span className="current">$36.00</span>
-                                    <div className="previous">$36.00</div>
-                                </div>
-                                <div className="cart-counter-action">
-                                    <div className="quantity-edit">
-                                        <input type="text" className="input" defaultValue="1"/>
-                                        <div className="button-wrapper-action">
-                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
-                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
-                                        </div>
-                                    </div>
-                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
-                                        <div className="btn-text">
-                                            Add To Cart
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-20">
-                        <div className="single-shopping-card-one">
-                
-                            <div className="image-and-action-area-wrapper">
-                                <a href="shop-details.html" className="thumbnail-preview">
-                                    <div className="badge">
-                                        <span>25% <br/> 
-                                            Off
-                                        </span>
-                                        <i className="fa-solid fa-bookmark"></i>
-                                    </div>
-                                    <img src="assets/images/grocery/04.jpg" alt="grocery"/>
-                                </a>
-                                <div className="action-share-option">
-                                    <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
-                                        <i className="fa-light fa-heart"></i>
-                                    </div>
-                                    <div className="single-action openuptip" data-flow="up" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i className="fa-solid fa-arrows-retweet"></i>
-                                    </div>
-                                    <div className="single-action openuptip cta-quickview product-details-popup-btn" data-flow="up" title="Quick View">
-                                        <i className="fa-regular fa-eye"></i>
-                                    </div>
-                                </div>
-                            </div>
-                
-
-                            <div className="body-content">
-
-                                <a href="shop-details.html">
-                                    <h4 className="title">Nestle Cerelac Mixed Fruits &amp;
-                                        Wheat with Milk</h4>
-                                </a>
-                                <span className="availability">500g Pack</span>
-                                <div className="price-area">
-                                    <span className="current">$36.00</span>
-                                    <div className="previous">$36.00</div>
-                                </div>
-                                <div className="cart-counter-action">
-                                    <div className="quantity-edit">
-                                        <input type="text" className="input" defaultValue="1"/>
-                                        <div className="button-wrapper-action">
-                                            <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
-                                            <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
-                                        </div>
-                                    </div>
-                                    <a href="#" className="rts-btn btn-primary radious-sm with-icon">
-                                        <div className="btn-text">
-                                            Add To Cart
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                        <div className="arrow-icon">
-                                            <i className="fa-regular fa-cart-shopping"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-20">
-                        <div className="single-shopping-card-one">
-                
-                            <div className="image-and-action-area-wrapper">
-                                <a href="shop-details.html" className="thumbnail-preview">
-                                    <div className="badge">
-                                        <span>25% <br/> 
-                                            Off
-                                        </span>
-                                        <i className="fa-solid fa-bookmark"></i>
-                                    </div>
-                                    <img src="assets/images/grocery/05.jpg" alt="grocery"/>
+                                    <img src="/assets/images/grocery/05.jpg" alt="grocery"/>
                                 </a>
                                 <div className="action-share-option">
                                     <div className="single-action openuptip message-show-action" data-flow="up" title="Add To Wishlist">
@@ -1012,7 +175,7 @@ const SearchResult = () => {
                                     </span>
                                     <i className="fa-solid fa-bookmark"></i>
                                 </div>
-                                <img src="assets/images/grocery/03.jpg" alt="grocery"/>
+                                <img src="/assets/images/grocery/03.jpg" alt="grocery"/>
                             </a>
                             <div className="body-content">
                                 <div className="title-area-left">
@@ -1081,7 +244,7 @@ const SearchResult = () => {
                                     </span>
                                     <i className="fa-solid fa-bookmark"></i>
                                 </div>
-                                <img src="assets/images/grocery/04.jpg" alt="grocery"/>
+                                <img src="/assets/images/grocery/04.jpg" alt="grocery"/>
                             </a>
                             <div className="body-content">
                                 <div className="title-area-left">
@@ -1150,7 +313,7 @@ const SearchResult = () => {
                                     </span>
                                     <i className="fa-solid fa-bookmark"></i>
                                 </div>
-                                <img src="assets/images/grocery/05.jpg" alt="grocery"/>
+                                <img src="/assets/images/grocery/05.jpg" alt="grocery"/>
                             </a>
                             <div className="body-content">
                                 <div className="title-area-left">
@@ -1219,7 +382,7 @@ const SearchResult = () => {
                                     </span>
                                     <i className="fa-solid fa-bookmark"></i>
                                 </div>
-                                <img src="assets/images/grocery/06.jpg" alt="grocery"/>
+                                <img src="/assets/images/grocery/06.jpg" alt="grocery"/>
                             </a>
                             <div className="body-content">
                                 <div className="title-area-left">
@@ -1288,7 +451,7 @@ const SearchResult = () => {
                                     </span>
                                     <i className="fa-solid fa-bookmark"></i>
                                 </div>
-                                <img src="assets/images/grocery/01.jpg" alt="grocery"/>
+                                <img src="/assets/images/grocery/01.jpg" alt="grocery"/>
                             </a>
                             <div className="body-content">
                                 <div className="title-area-left">
@@ -1359,7 +522,7 @@ const SearchResult = () => {
                                     </span>
                                     <i className="fa-solid fa-bookmark"></i>
                                 </div>
-                                <img src="assets/images/grocery/03.jpg" alt="grocery"/>
+                                <img src="/assets/images/grocery/03.jpg" alt="grocery"/>
                             </a>
                             <div className="body-content">
                                 <div className="title-area-left">
@@ -1428,7 +591,7 @@ const SearchResult = () => {
                                     </span>
                                     <i className="fa-solid fa-bookmark"></i>
                                 </div>
-                                <img src="assets/images/grocery/04.jpg" alt="grocery"/>
+                                <img src="/assets/images/grocery/04.jpg" alt="grocery"/>
                             </a>
                             <div className="body-content">
                                 <div className="title-area-left">
@@ -1497,7 +660,7 @@ const SearchResult = () => {
                                     </span>
                                     <i className="fa-solid fa-bookmark"></i>
                                 </div>
-                                <img src="assets/images/grocery/05.jpg" alt="grocery"/>
+                                <img src="/assets/images/grocery/05.jpg" alt="grocery"/>
                             </a>
                             <div className="body-content">
                                 <div className="title-area-left">
@@ -1566,7 +729,7 @@ const SearchResult = () => {
                                     </span>
                                     <i className="fa-solid fa-bookmark"></i>
                                 </div>
-                                <img src="assets/images/grocery/06.jpg" alt="grocery"/>
+                                <img src="/assets/images/grocery/06.jpg" alt="grocery"/>
                             </a>
                             <div className="body-content">
                                 <div className="title-area-left">
@@ -1635,7 +798,7 @@ const SearchResult = () => {
                                     </span>
                                     <i className="fa-solid fa-bookmark"></i>
                                 </div>
-                                <img src="assets/images/grocery/01.jpg" alt="grocery"/>
+                                <img src="/assets/images/grocery/01.jpg" alt="grocery"/>
                             </a>
                             <div className="body-content">
                                 <div className="title-area-left">

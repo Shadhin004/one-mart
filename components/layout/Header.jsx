@@ -1,8 +1,12 @@
 "use client"
 
+import Link from 'next/link'
 import React from 'react'
+import { useSession } from 'next-auth/react'
 
 const Header = () => {
+  const { data: session } = useSession()
+
   return (
     <div className="rts-header-one-area-one">
         <div className="header-top-area">
@@ -224,19 +228,25 @@ const Header = () => {
                                 </div>
                             </div>
                             <div className="accont-wishlist-cart-area-header">
-                                <a href="account.html" className="btn-border-only account">
-                                    <i className="fa-light fa-user"></i>
-                                    <span>Account</span>
-                                </a>
-                                <a href="wishlist.html" className="btn-border-only wishlist">
-                                    <i className="fa-regular fa-heart"></i>
-                                    <span className="text">Wishlist</span>
-                                    <span className="number">2</span>
-                                </a>
+                                {
+                                    session ? (
+                                        <Link href="/account/dashboard" className="btn-border-only account">
+                                            <i className="fa-light fa-user"></i>
+                                            <span>Account</span>
+                                        </Link>
+                                    ) : (
+                                        <Link href="/auth/login" className="btn-border-only wishlist">
+                                            <i className="fa-regular fa-lock"></i>
+                                            <span className="text">Login</span>
+                                        </Link>
+                                    )
+                                }
+                                
+                                
                                 <div className="btn-border-only cart category-hover-header">
                                     <i className="fa-sharp fa-regular fa-cart-shopping"></i>
                                     <span  className="text">My Cart</span>
-                                    <span className="number">2</span>
+                                    <span className="number">0</span>
                                     <div className="category-sub-menu card-number-show">
                                         <h5 className="shopping-cart-number">Shopping Cart (03)</h5>
                                         <div className="cart-item-1 border-top">
@@ -332,19 +342,19 @@ const Header = () => {
                                 <nav>
                                     <ul className="parent-nav">
                                         <li className="parent has-dropdown">
-                                            <a className="nav-link" href="#">Home</a>
-                                            <ul className="submenu">
+                                            <Link className="nav-link" href="/">Home</Link>
+                                            {/* <ul className="submenu">
                                                 <li><a className="sub-b" href="index.html">Home One</a></li>
                                                 <li><a className="sub-b" href="index-two.html">Home Two</a></li>
                                                 <li><a className="sub-b" href="index-three.html">Home Three</a></li>
                                                 <li><a className="sub-b" href="index-four.html">Home Four</a></li>
                                                 <li><a className="sub-b" href="index-five.html">Home Five</a></li>
-                                            </ul>
+                                            </ul> */}
                                         </li>
-                                        <li className="parent"><a href="about.html">About</a></li>
+                                        <li className="parent"><Link href="/about-us">About</Link></li>
                                         <li className="parent with-megamenu">
-                                            <a href="#">Shop</a>
-                                            <div className="rts-megamenu">
+                                            <Link href="/search/products">Shop</Link>
+                                            {/* <div className="rts-megamenu">
                                                 <div className="wrapper">
                                                     <div className="row align-items-center">
                                                         <div className="col-lg-8">
@@ -393,9 +403,9 @@ const Header = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                         </li>
-                                        <li className="parent has-dropdown">
+                                        {/* <li className="parent has-dropdown">
                                             <a className="nav-link" href="#">Vendors</a>
                                             <ul className="submenu">
                                                 <li><a className="sub-b" href="vendor-list.html">Vendor List</a></li>
@@ -427,8 +437,8 @@ const Header = () => {
                                                 <li><a className="sub-b" href="blog-list-right-sidebar.html">Blog List Left Sidebar</a></li>
                                                 <li><a className="sub-b" href="blog-details.html">Blog Details</a></li>
                                             </ul>
-                                        </li>
-                                        <li className="parent"><a href="contact.html">Contact</a></li>
+                                        </li> */}
+                                        <li className="parent"><Link href="/contact">Contact</Link></li>
                                     </ul>
                                 </nav>
                             </div>

@@ -10,11 +10,11 @@ const FilterSidebar = () => {
                     <div className="half-input-wrapper">
                         <div className="single">
                             <label htmlFor="min">Min price</label>
-                            <input id="min" type="text" value="0"/>
+                            <input id="min" type="text" defaultValue="0"/>
                         </div>
                         <div className="single">
                             <label htmlFor="max">Max price</label>
-                            <input id="max" type="text" value="150"/>
+                            <input id="max" type="text" defaultValue="150"/>
                         </div>
                     </div>
                     <input type="range" className="range"/>

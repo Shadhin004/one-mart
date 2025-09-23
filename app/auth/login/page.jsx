@@ -2,12 +2,22 @@
 
 import React from 'react'
 import { useForm } from "react-hook-form";
-import { signIn } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
+import { useRouter } from 'next/router';
+import Loader from '@/components/common/Loader';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const {status} = useSession();
+    // const router = useRouter();
 
-     const onSubmit = async (data) => {
+    console.log(status)
+
+    if(status === "authenticated"){
+        window.location.replace("/account/dashboard");
+    }
+
+    const onSubmit = async (data) => {
         const res = await signIn("credentials", {
           redirect: false,
           email: data.email,
@@ -27,6 +37,9 @@ const Login = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
+                        {
+                            status === "loading" ? <Loader /> : null
+                        }
                         <div className="registration-wrapper-1">
                             <div className="logo-area mb--0">
                                 <img className="mb--10" src="/assets/images/logo/fav.png" alt="logo"/>

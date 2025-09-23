@@ -1,35 +1,22 @@
 'use client'
 
 import React from 'react'
+import { useGetProductByIdQuery } from '@/store/api'
+import { useParams } from 'next/navigation'
+import Loader from '@/components/common/Loader'
 
 const ProductDetails = () => {
-  return (
-    <div>
-        <div className="rts-navigation-area-breadcrumb bg_light-1">
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-12">
-                        <div className="navigator-breadcrumb-wrapper">
-                            <a href="index.html">Home</a>
-                            <i className="fa-regular fa-chevron-right"></i>
-                            <a className="#" href="index.html">Beverage</a>
-                            <i className="fa-regular fa-chevron-right"></i>
-                            <a className="current" href="index.html">2L Mum Water</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    const { id } = useParams();
+    const { data, error, isLoading } = useGetProductByIdQuery(id);
 
-        <div className="section-seperator bg_light-1">
-            <div className="container">
-                <hr className="section-seperator" />
-            </div>
-        </div>
+    if (isLoading) return <Loader />;
+    if (error) return <div>Error fetching product details</div>;
 
-        <div className="rts-chop-details-area rts-section-gap bg_light-1">
-            <div className="container">
-                <div className="shopdetails-style-1-wrapper">
+    return (
+        <div>
+            <div className="rts-chop-details-area rts-section-gap bg_light-1">
+                <div className="container">
+                    <div className="shopdetails-style-1-wrapper">
                     <div className="row g-5">
                         <div className="col-lg-9">
                             <div className="product-details-popup-wrapper in-shopdetails">
@@ -39,11 +26,11 @@ const ProductDetails = () => {
 
                                             <div className="show-product-area-details">
                                                 <div className="product-thumb-filter-group left">
-                                                    <div className="thumb-filter filter-btn active" data-show=".one"><img src="assets/images/shop/01.jpg" alt="product-thumb-filter"/></div>
-                                                    <div className="thumb-filter filter-btn" data-show=".two"><img src="assets/images/shop/02.jpg" alt="product-thumb-filter"/></div>
-                                                    <div className="thumb-filter filter-btn" data-show=".three"><img src="assets/images/shop/03.jpg" alt="product-thumb-filter"/></div>
-                                                    <div className="thumb-filter filter-btn" data-show=".four"><img src="assets/images/shop/04.jpg" alt="product-thumb-filter"/></div>
-                                                    <div className="thumb-filter filter-btn" data-show=".five"><img src="assets/images/shop/05.jpg" alt="product-thumb-filter"/></div>
+                                                    <div className="thumb-filter filter-btn active" data-show=".one"><img src="/assets/images/shop/01.jpg" alt="product-thumb-filter"/></div>
+                                                    <div className="thumb-filter filter-btn" data-show=".two"><img src="/assets/images/shop/02.jpg" alt="product-thumb-filter"/></div>
+                                                    <div className="thumb-filter filter-btn" data-show=".three"><img src="/assets/images/shop/03.jpg" alt="product-thumb-filter"/></div>
+                                                    <div className="thumb-filter filter-btn" data-show=".four"><img src="/assets/images/shop/04.jpg" alt="product-thumb-filter"/></div>
+                                                    <div className="thumb-filter filter-btn" data-show=".five"><img src="/assets/images/shop/05.jpg" alt="product-thumb-filter"/></div>
                                                 </div>
                                                 <div className="product-thumb-area">
                                                     <div className="cursor"></div>
@@ -80,13 +67,11 @@ const ProductDetails = () => {
                                                         <span>10 Reviews</span>
                                                     </div>
                                                 </div>
-                                                <h2 className="product-title">Kitchen Fade Defy PLUG Air Freshener</h2>
+                                                <h2 className="product-title">{data.product_name}</h2>
                                                 <p className="mt--20 mb--20">
-                                                    Priyoshop has brought to you the Hijab 3 Pieces Combo Pack PS23. It is a
-                                                    completely modern design and you feel comfortable to put on this hijab.
-                                                    Buy it at the best price.
+                                                    {data.product_description}
                                                 </p>
-                                                <span className="product-price mb--15 d-block" style={{"color": "#DC2626", "fontWeight": 600}}> $36.25<span className="old-price ml--15">$69.35</span></span>
+                                                <span className="product-price mb--15 d-block" style={{"color": "#DC2626", "fontWeight": 600}}>{data.price}<span className="old-price ml--15">$69.35</span></span>
                                                 <div className="product-bottom-action">
                                                     <div className="cart-edits">
                                                         <div className="quantity-edit action-item">
@@ -110,11 +95,8 @@ const ProductDetails = () => {
                                                 </div>
                                                 <div className="product-uniques">
                                                     <span className="sku product-unipue mb--10"><span style={{"fontWeight": 400, "marginRight": 10}}>SKU: </span> BO1D0MX8SJ</span>
-                                                    <span className="catagorys product-unipue mb--10"><span style={{"fontWeight": 400, "marginRight": 10}}>Categories: </span> T-Shirts, Tops, Mens</span>
-                                                    <span className="tags product-unipue mb--10"><span style={{"fontWeight": 400, "marginRight": 10}}>Tags: </span> fashion, t-shirts, Men</span>
-                                                    <span className="tags product-unipue mb--10"><span style={{"fontWeight": 400, "marginRight": 10}}>LIFE:: </span> 6 Months</span>
-                                                    <span className="tags product-unipue mb--10"><span style={{"fontWeight": 400, "marginRight": 10}}>Type: </span> original</span>
-                                                    <span className="tags product-unipue mb--10"><span style={{"fontWeight": 400, "marginRight": 10}}>Category: </span> Beverages, Dairy & Bakery</span>
+                                                    <span className="catagorys product-unipue mb--10"><span style={{"fontWeight": 400, "marginRight": 10}}>Categories: </span> {data.category_name}</span>
+                                                    
                                                 </div>
                                                 <div className="share-option-shop-details">
                                                     <div className="single-share-option">
@@ -161,7 +143,7 @@ const ProductDetails = () => {
                                             </p>
                                             <div className="details-row-2">
                                                 <div className="left-area">
-                                                    <img src="assets/images/shop/06.jpg" alt="shop"/>
+                                                    <img src="/assets/images/shop/06.jpg" alt="shop"/>
                                                 </div>
                                                 <div className="right">
                                                     <h4 className="title">All Natural Italian-Style Chicken Meatballs</h4>
@@ -361,7 +343,7 @@ const ProductDetails = () => {
                                     <h6 className="title">Available offers</h6>
                                     <div className="single-offer-area">
                                         <div className="icon">
-                                            <img src="assets/images/shop/01.svg" alt="icon"/>
+                                            <img src="/assets/images/shop/01.svg" alt="icon"/>
                                         </div>
                                         <div className="details">
                                             <p>Get %5 instant discount for the 1st Flipkart Order using Ekomart UPI T&C</p>
@@ -369,7 +351,7 @@ const ProductDetails = () => {
                                     </div>
                                     <div className="single-offer-area">
                                         <div className="icon">
-                                            <img src="assets/images/shop/02.svg" alt="icon"/>
+                                            <img src="/assets/images/shop/02.svg" alt="icon"/>
                                         </div>
                                         <div className="details">
                                             <p>Flat $250 off on Citi-branded Credit Card EMI Transactions on orders of $30 and above T&C</p>
@@ -377,7 +359,7 @@ const ProductDetails = () => {
                                     </div>
                                     <div className="single-offer-area">
                                         <div className="icon">
-                                            <img src="assets/images/shop/03.svg" alt="icon"/>
+                                            <img src="/assets/images/shop/03.svg" alt="icon"/>
                                         </div>
                                         <div className="details">
                                             <p>Free Worldwide Shipping on all
@@ -387,7 +369,7 @@ const ProductDetails = () => {
                                 </div>
                                 <div className="our-payment-method">
                                     <h5 className="title">Guaranteed Safe Checkout</h5>
-                                    <img src="assets/images/shop/03.png" alt=""/>
+                                    <img src="/assets/images/shop/03.png" alt=""/>
                                 </div>
                             </div>
                         </div>
