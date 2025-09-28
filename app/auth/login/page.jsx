@@ -3,15 +3,13 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
 import { useSession, signIn } from "next-auth/react";
-import { useRouter } from 'next/router';
 import Loader from '@/components/common/Loader';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const {status} = useSession();
     // const router = useRouter();
-
-    console.log(status)
 
     if(status === "authenticated"){
         window.location.replace("/account/dashboard");
@@ -25,9 +23,9 @@ const Login = () => {
         });
 
         if (res.error) {
-            console.log("Login failed");
+            toast.error("Login failed");
         } else {
-            console.log("Login successful");
+            toast.success("Login successful");
         }
     }
 
@@ -77,6 +75,7 @@ const Login = () => {
                 </div>
             </div>
         </div>
+        <Toaster />
     </div>
   )
 }

@@ -2,6 +2,7 @@ import Script from "next/script";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Providers from "./providers";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "One mart - Your One Stop Shop",
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
           <Header />
             {children}
           <Footer />
+          <Toaster />
         </Providers>
         <Script src="http://localhost:3000/assets/js/plugins.js" strategy="afterInteractive" />
         <Script src="http://localhost:3000/assets/js/main.js" strategy="afterInteractive" />

@@ -1,9 +1,10 @@
+// app/api/auth/[...nextauth]/route.js
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { getDB } from "@/lib/db.js";
 import bcrypt from "bcrypt";
 
-const authHandler = NextAuth({
+export const authOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -26,12 +27,25 @@ const authHandler = NextAuth({
         };
       },
     }),
-  ],  
+  ],
   pages: {
     signIn: "/auth/login",
   },
   session: { strategy: "jwt" },
   secret: process.env.NEXTAUTH_SECRET,
-});
 
-export { authHandler as GET, authHandler as POST };
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) token.id = user.id;
+      return token;
+    },
+    async session({ session, token }) {
+      if (token) session.user.id = token.id;
+      return session;
+    },
+  },
+};
+
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };

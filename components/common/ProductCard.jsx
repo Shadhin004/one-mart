@@ -1,7 +1,35 @@
-import React from 'react'
+'use client'
+
+import React, {use, useState} from 'react'
 import Link from 'next/link'
+import { useAddToCartMutation, useGetCartQuery } from '@/store/api'
+import toast from 'react-hot-toast'
 
 const ProductCard = ({ product }) => {
+    const [cartQuantity, setCartQuantity] = useState(1);
+  const [addToCart] = useAddToCartMutation();
+  const { refetch } = useGetCartQuery();
+
+  const handleAddToCart = async () => {
+
+    try {
+      const res = await addToCart({
+        product_id: product.product_id,
+        quantity: cartQuantity,
+      });
+
+      if (res.data) {
+        toast.success("Item added to cart");
+        refetch(); 
+      } else {
+        toast.error("Failed to add to cart");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong");
+    }
+  };
+
   return (
     <div className="single-shopping-card-one">
                 
@@ -40,13 +68,13 @@ const ProductCard = ({ product }) => {
             </div>
             <div className="cart-counter-action">
                 <div className="quantity-edit">
-                    <input type="text" className="input" defaultValue="1"/>
+                    <input type="text" className="input" value={cartQuantity}/>
                     <div className="button-wrapper-action">
-                        <button className="button"><i className="fa-regular fa-chevron-down"></i></button>
-                        <button className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
+                        <button onClick={() => setCartQuantity(cartQuantity - 1)} className="button"><i className="fa-regular fa-chevron-down"></i></button>
+                        <button onClick={() => setCartQuantity(cartQuantity + 1)} className="button plus">+<i className="fa-regular fa-chevron-up"></i></button>
                     </div>
                 </div>
-                <a href="#" className="rts-btn btn-primary radious-sm with-icon">
+                <button onClick={handleAddToCart} className="rts-btn btn-primary radious-sm with-icon">
                     <div className="btn-text">
                         Add To Cart
                     </div>
@@ -56,7 +84,7 @@ const ProductCard = ({ product }) => {
                     <div className="arrow-icon">
                         <i className="fa-regular fa-cart-shopping"></i>
                     </div>
-                </a>
+                </button>
             </div>
         </div>
     </div>

@@ -24,6 +24,50 @@ export const api = createApi({
         body: user,
       }),
     }),
+// cart endpoints
+    getCart: builder.query({
+      query: () => `cartItems`,
+    }),
+    addToCart: builder.mutation({
+      query: (cartItem) => ({
+        url: "cartItems",
+        method: "POST",
+        body: cartItem,
+      }),
+    }),
+    removeFromCart: builder.mutation({
+      query: (cart_item_id) => ({
+        url: "cartItems",
+        method: "DELETE",
+        body: { cart_item_id },
+      }),
+    }),
+
+    updateShippingAddress: builder.mutation({
+      query: (address) => ({
+        url: "shippingAddress",
+        method: "POST",
+        body: address,
+      }),
+    }),
+    updateUserAddress: builder.mutation({
+      query: (address) => ({
+        url: "userAddress",
+        method: "POST",
+        body: address,
+      }),
+    }),
+    getUserAddress: builder.query({
+      query: () => "userAddress",
+    }),
+
+    updateExistingUserAddress: builder.mutation({
+      query: (address) => ({
+        url: "userAddress",
+        method: "PUT",
+        body: address,
+      }),
+    }),
   }),
 });
 
@@ -31,5 +75,12 @@ export const {
     useGetProductsQuery, 
     useGetProductByIdQuery, 
     useAddProductMutation, 
-    useSignupMutation 
+    useSignupMutation,
+    useGetCartQuery,
+    useAddToCartMutation,
+    useRemoveFromCartMutation,
+    useUpdateShippingAddressMutation,
+    useUpdateUserAddressMutation,
+    useGetUserAddressQuery,
+    useUpdateExistingUserAddressMutation
 } = api;
