@@ -68,6 +68,22 @@ export const api = createApi({
         body: address,
       }),
     }),
+
+    getPaymentMethods: builder.query({
+      query: ()=> "paymentMethods"
+    }),
+
+    placeOrder: builder.mutation({
+      query: (orderInfo) => ({
+        url: "order",
+        method: "POST",
+        body: orderInfo,
+      }),
+    }),
+
+    getUserOrder: builder.query({
+      query: ()=> "order",
+    }),
   }),
 });
 
@@ -82,5 +98,8 @@ export const {
     useUpdateShippingAddressMutation,
     useUpdateUserAddressMutation,
     useGetUserAddressQuery,
-    useUpdateExistingUserAddressMutation
+    useUpdateExistingUserAddressMutation,
+    useGetPaymentMethodsQuery,
+    usePlaceOrderMutation,
+    useGetUserOrderQuery
 } = api;

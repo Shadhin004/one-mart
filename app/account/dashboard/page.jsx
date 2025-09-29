@@ -2,9 +2,11 @@
 
 import React from 'react'
 import { useSession, signOut } from 'next-auth/react';
+import { useGetUserOrderQuery } from '@/store/api';
 
 const UserDashboard = () => {
     const { data: session } = useSession();
+    const { data: orderList} = useGetUserOrderQuery()
   return (
     <div>
         <div className="account-tab-area-start rts-section-gap">
@@ -40,32 +42,27 @@ const UserDashboard = () => {
                                                     <th>Order</th>
                                                     <th>Date</th>
                                                     <th>Status</th>
-                                                    <th>Total</th>
+                                                    {/* <th>Total</th> */}
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>#1357</td>
-                                                    <td>March 45, 2020</td>
-                                                    <td>Processing</td>
-                                                    <td>$125.00 for 2 item</td>
-                                                    <td><a href="#" className="btn-small d-block">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>#2468</td>
-                                                    <td>June 29, 2020</td>
-                                                    <td>Completed</td>
-                                                    <td>$364.00 for 5 item</td>
-                                                    <td><a href="#" className="btn-small d-block">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>#2366</td>
-                                                    <td>August 02, 2020</td>
-                                                    <td>Completed</td>
-                                                    <td>$280.00 for 3 item</td>
-                                                    <td><a href="#" className="btn-small d-block">View</a></td>
-                                                </tr>
+                                                {console.log(orderList)}
+                                                {
+                                                    orderList? orderList.map(item=>{
+                                                        return(
+                                                            <tr>
+                                                                <td>#{item.order_id}</td>
+                                                                <td>{new Date(item.order_date).toLocaleDateString()}</td>
+                                                                <td>{item.status_name}</td>
+                                                                {/* <td>$125.00 for 2 item</td> */}
+                                                                <td><a href="#" className="btn-small d-block">View</a></td>
+                                                            </tr>
+                                                        )
+                                                    }) : <tr>
+                                                        <td>No active order yet</td>
+                                                    </tr>
+                                                }
                                             </tbody>
                                         </table>
                                     </div>

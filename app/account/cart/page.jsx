@@ -3,6 +3,7 @@
 import React, {useEffect, useState} from 'react'
 import { useGetCartQuery, useRemoveFromCartMutation } from '@/store/api'
 import toast from 'react-hot-toast';
+import Link from 'next/link';
 
 const page = () => {
     const {data : cartData, isLoading, refetch} = useGetCartQuery();
@@ -107,15 +108,15 @@ const page = () => {
                             <span>Subtotal</span>
                             <h6 className="price" id='subtotal'>${ cartData?.reduce((acc, item) => acc + item.price * item.quantity, 0) }</h6>
                         </div>
-                        <div className="shipping">
+                        {/* <div className="shipping">
                             <span>Shipping</span>
                             <ul>
-                                {/* <li>
+                                <li>
                                     <input type="radio" onClick={() => setShippingCost(0)} id="f-option" name="selector"/>
                                     <label htmlFor="f-option">Free Shipping</label>
 
                                     <div className="check"></div>
-                                </li> */}
+                                </li>
 
                                 <li>
                                     <input type="radio" onClick={() => setShippingCost(10)} id="s-option" name="selector"/>
@@ -141,14 +142,14 @@ const page = () => {
                                     <p className="bold">Shipping Cost : ${shippingCost}</p>
                                 </li>
                             </ul>
-                        </div>
+                        </div> */}
                         <div className="bottom">
                             <div className="wrapper">
                                 <span>Subtotal</span>
                                 <h6 className="price">${total + shippingCost}</h6>
                             </div>
                             <div className="button-area">
-                                <button className="rts-btn btn-primary">Proceed To Checkout</button>
+                                <Link href="/account/checkout" className="rts-btn btn-primary">Proceed To Checkout</Link>
                             </div>
                         </div>
                     </div>

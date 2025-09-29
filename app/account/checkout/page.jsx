@@ -4,24 +4,32 @@ import React, {useState} from 'react'
 import { useGetCartQuery } from '@/store/api'
 import { useForm } from "react-hook-form";
 import { useSession } from 'next-auth/react';
-import { useUpdateUserAddressMutation, useGetUserAddressQuery, useUpdateExistingUserAddressMutation } from '@/store/api';
+import { useUpdateUserAddressMutation, useGetUserAddressQuery, useUpdateExistingUserAddressMutation, useGetPaymentMethodsQuery, usePlaceOrderMutation } from '@/store/api';
 import toast from 'react-hot-toast';
 
 const page = () => {
 
-    const {data : cartData, cartDataLoading : isLoading} = useGetCartQuery();
     const [activeAddress, setActiveAddress] = useState(null);
-    const { register, handleSubmit, formState: { errors }, setValue } = useForm({mode : 'onBlur'});
+    const [newAddress, setNewAddress] = useState(false);
+    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null)
+
+    const { register, handleSubmit, formState: { errors } } = useForm({mode : 'onBlur'});
+
     const {data: session} = useSession();
-    const [useUpdateUserAddressMutationFn] = useUpdateUserAddressMutation();
-    const [useUpdateExistingUserAddressMutationFn] = useUpdateExistingUserAddressMutation();
+
+    const {data : cartData, cartDataLoading : isLoading} = useGetCartQuery();
     const {data: userAddressData} = useGetUserAddressQuery();
+    const {data: paymentMethods} = useGetPaymentMethodsQuery();
+    
+    const [useUpdateExistingUserAddressMutationFn] = useUpdateExistingUserAddressMutation();
+    const [useUpdateUserAddressMutationFn] = useUpdateUserAddressMutation();
+    const [placeOrderFn] = usePlaceOrderMutation()
 
 
     const onSubmit = async (addressData) => {
-        if(addressData.address_id && addressData.address_id !== ''){
+        if(!newAddress){
             try {
-                const res = await useUpdateExistingUserAddressMutationFn(addressData);
+                const res = await useUpdateExistingUserAddressMutationFn(activeAddress);
                 if (res.data) {
                     toast.success("Address updated successfully");
                 } else {
@@ -45,6 +53,26 @@ const page = () => {
             }
         }
     }
+
+    const placeOrder = async ()=>{
+        const orderParam = {
+            address : activeAddress,
+            paymentMethodId : selectedPaymentMethod
+        }
+
+        try{
+            const res = await placeOrderFn(orderParam)
+            if (res.data) {
+                toast.success("Order placed successfully");
+            } else {
+                toast.error("Failed to place order");
+            }
+        }catch (error){
+            toast.error("Something went wrong" + error)
+        }
+    }
+
+    // console.log(activeAddress)
     
   return (
     <div>
@@ -75,7 +103,7 @@ const page = () => {
                             <h3 className='title'>Saved addresses</h3>
                             {
                                 userAddressData && userAddressData.address && userAddressData.address.length > 0 ? userAddressData.address.map((address, index) => (
-                                    <div key={index} onClick={() => setValue([address])} style={{border: activeAddress?.address_id === address.address_id ? '2px solid #629D23' : '1px solid #ccc', padding: '10px', marginBottom: '10px', borderRadius: '5px', cursor: 'pointer'}}>
+                                    <div key={index} onClick={() => setActiveAddress(address)} style={{border: activeAddress?.address_id === address.address_id ? '2px solid #629D23' : '1px solid #ccc', padding: '10px', marginBottom: '10px', borderRadius: '5px', cursor: 'pointer'}}>
                                         <p>{address.street}, {address.city}, {address.state}, {address.postal_code}, {address.country}</p>
                                     </div>
                                 )) : (
@@ -86,9 +114,9 @@ const page = () => {
                         <div className="coupon-input-area-1">
                             <div className="coupon-area">
                                 <div className="coupon-ask  cupon-wrapper-1">
-                                    <button className="coupon-click">Have a coupon? Click here to enter your code</button>
+                                    <button className="coupon-click" onClick={() => [setNewAddress(!newAddress), setActiveAddress(null)]}>{newAddress ? 'Cancel' : 'Click here to add a new address'}</button>
                                 </div>
-                                <div className="coupon-input-area cupon1">
+                                {/* <div className="coupon-input-area cupon1">
                                     <div className="inner">
                                         <p className="mt--0 mb--20"> If you have a coupon code, please apply it below.</p>
                                         <div className="form-area">
@@ -96,11 +124,11 @@ const page = () => {
                                             <button type="submit" className="btn-primary rts-btn">Apply Coupon</button>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
 
-                        <div className="rts-billing-details-area">
+                        <div className="rts-billing-details-area" style={{display: newAddress ? 'block' : 'none'}}>
                             <h3 className="title">Billing Details</h3>
                             <form onSubmit={handleSubmit(onSubmit)} className="billing-form">
                                 <div className="single-input">
@@ -150,7 +178,7 @@ const page = () => {
                                     <textarea id="ordernotes" required {...register("orderNotes", { required: true })}></textarea>
                                     {errors.orderNotes && <span>This field is required</span>}
                                 </div> */}
-                                <button className="rts-btn btn-primary">Save Address</button>
+                                {/* <button className="rts-btn btn-primary">Save Address</button> */}
                             </form>
                         </div>
                     </div>
@@ -198,49 +226,30 @@ const page = () => {
                             </div>
                             <div className="cottom-cart-right-area">
                                 <ul>
-                                    <li>
-                                        <input type="radio" id="f-options" name="selector" />
-                                        <label htmlFor="f-options">Direct Bank Transfer</label>
+                                    {
+                                        paymentMethods?.map((method, index)=>{
+                                            return(
+                                                <li key={index}>
+                                                    <input type="radio" onClick={()=> setSelectedPaymentMethod(method.method_id)} value={method.method_id} id="f-options" name="selector" />
+                                                    <label htmlFor="f-options">{method.method_name}</label>
 
-                                        <div className="check"></div>
-                                    </li>
+                                                    <div className="check"></div>
+                                                </li>
+                                            )
+                                        })
+                                    }
                                 </ul>
                                 <p className="disc mb--25">
                                     Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
                                 </p>
-                                <ul>
-                                    <li>
-                                        <input type="radio" id="f-option" name="selector" />
-                                        <label htmlFor="f-option">Check Payments</label>
-
-                                        <div className="check"></div>
-                                    </li>
-
-                                    <li>
-                                        <input type="radio" id="s-option" name="selector" />
-                                        <label htmlFor="s-option">Cash On Delivery</label>
-
-                                        <div className="check">
-                                            <div className="inside"></div>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <input type="radio" id="t-option" name="selector" />
-                                        <label htmlFor="t-option">Paypal</label>
-
-                                        <div className="check">
-                                            <div className="inside"></div>
-                                        </div>
-                                    </li>
-                                </ul>
+                                
                                 <p className="mb--20">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
                                 <div className="single-category mb--30">
                                     <input id="cat14" type="checkbox" required />
                                     <label htmlFor="cat14"> I have read and agree terms and conditions *
                                     </label>
                                 </div>
-                                <a href="#" className="rts-btn btn-primary">Place Order</a>
+                                <button onClick={placeOrder} className="rts-btn btn-primary">Place Order</button>
                             </div>
                         </div>
                     </div>
